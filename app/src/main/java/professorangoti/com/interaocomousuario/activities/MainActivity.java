@@ -12,6 +12,7 @@ import android.widget.Toast;
 import professorangoti.com.interaocomousuario.R;
 
 public class MainActivity extends AppCompatActivity {
+
     private String mensagem;
 
     @Override
@@ -24,19 +25,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -44,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onClick(View view) {
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+        intent.putExtra("mensagem", mensagem);
+        startActivity(intent);
+    }
+    
     public void displayToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
@@ -63,9 +67,4 @@ public class MainActivity extends AppCompatActivity {
         displayToast(getString(R.string.froyo_order_message));
     }
 
-    public void onClick(View view) {
-        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-        intent.putExtra("mensagem", mensagem);
-        startActivity(intent);
-    }
 }

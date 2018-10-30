@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 
 public interface PedidoServico {
 
-    @GET("precos")
+    @GET("preco")
     Call<List<Pedido>> pegaListaDePedidos();
 }

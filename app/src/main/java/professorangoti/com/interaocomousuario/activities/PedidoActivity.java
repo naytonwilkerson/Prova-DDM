@@ -9,14 +9,14 @@ import professorangoti.com.interaocomousuario.model.Pedido;
 
 public class PedidoActivity extends AppCompatActivity {
 
-    private TextView precoPedido;
+    private TextView precoDoPedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-        precoPedido = findViewById(R.id.textView2);
+        precoDoPedido = findViewById(R.id.textView2);
 
         Bundle bundle = getIntent().getExtras();
         Pedido pedido = null;
@@ -26,7 +26,7 @@ public class PedidoActivity extends AppCompatActivity {
         }
 
         if (pedido != null) {
-            precoPedido.setText(pedido.getValor());
+            precoDoPedido.setText(pedido.getValor());
         }
 
     }
